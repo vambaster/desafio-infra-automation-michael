@@ -1,0 +1,55 @@
+---
+- name: Install and Configure Docker
+  hosts: docker-vms
+  become: yes
+  tasks:
+    - name: Update apt package index
+      apt:
+        update_cache: yes
+
+    - name: Install packages to allow apt to use a repository over HTTPS
+      apt:
+        name: 
+          - apt-transport-https
+          - ca-certificates
+          - curl
+          - software-properties-common
+        state: present
+
+    - name: Add Docker's official GPG key
+      apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+
+    - name: Add Docker repository
+      apt_repository:
+        repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable
+        state: present
+
+    - name: Update apt package index after adding Docker repository
+      apt:
+        update_cache: yes
+
+    - name: Install Docker CE
+      apt:
+        name: 
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+        state: present
+
+    - name: Add user to docker group
+      user:
+        name: "{{ ansible_user }}"
+        groups: docker
+        append: yes
+
+    - name: Enable Docker service
+      systemd:
+        name: docker
+        enabled: yes
+
+    - name: Start Docker service
+      systemd:
+        name: docker
+        state: started
