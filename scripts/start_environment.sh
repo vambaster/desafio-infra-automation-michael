@@ -13,8 +13,7 @@ fi
 
 # Configurar o ambiente Ansible
 docker run -d --name ansible \
-  -v /path/to/ansible/playbook:/ansible/playbook \
-  -v /path/to/ansible/roles:/ansible/roles \
+  -v $(pwd)/ansible:/ansible/playbook \
   ansible/ansible:latest
 
 echo "Ambiente Ansible configurado e pronto para uso"
