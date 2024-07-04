@@ -1,25 +1,16 @@
-# Desafio de Automação de Infraestrutura
-
-## Objetivo
-
-O objetivo deste desafio é avaliar suas habilidades em Rundeck e Ansible. Você precisará converter um job complexo do Rundeck, que interage com diversas máquinas Linux para instalar e configurar Docker, em um playbook Ansible.
-
-## Estrutura do Projeto
-
-```plaintext
 desafio-infra-automation-davi/
 ├── ansible/
-│   ├── playbook.yaml        # Playbook Ansible
-│   └── roles/               # Papéis Ansible se necessário
+│   ├── playbook.yaml
+│   └── roles/
 ├── rundeck/
-│   └── job.yaml             # Job do Rundeck
+│   └── job.yaml
+├── .github/
+│   ├── workflows/
+│   │    └──  deploy.yaml
 ├── terraform/
-│   ├── main.tf              # Arquivo principal do Terraform
-│   ├── variables.tf         # Variáveis do Terraform
-│   └── outputs.tf           # Outputs do Terraform
-├── .env
-├── scripts/
-│   ├── setup_rundeck.sh     # Script para configurar o Rundeck
-│   ├── start_environment.sh # Script para iniciar o ambiente (Docker, Vagrant, etc.)
-│   └── run_playbook.sh      # Script para executar o playbook Ansible
-└── README.md                # Documentação do projeto
+│   ├── tfvars.tf
+│   ├── providers.tf
+│   ├── main.tf
+│   ├── variables.tf
+│   └── outputs.tf
+└── README.md
