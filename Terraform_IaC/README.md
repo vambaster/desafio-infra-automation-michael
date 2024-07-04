@@ -52,10 +52,26 @@ Deixei o **Terraform install ZIP** caso ainda não tenha instalado. Descompacte 
 
 <h2>Pipeline CI/CD no GitHub Actions</h2>
 
+Na pipeline deixei o apply e o destroy, quando for fazer o apply tem que estar DESCOMENTADO:
+
+```sh
+      - name: Aplicar Terraform
+        run: terraform apply -auto-approve
+        working-directory: Terraform_IaC
+```
+
+E caso for destruir, comentar o codigo acima do apply e deixar DESCOMENTADO esse trecho da pipeline:
+
+```sh
+      - name: Destruir Terraform
+        run: terraform destroy -auto-approve
+        working-directory: Terraform_IaC
+```
+
 <h3>1. Configuração do Workflow</h3>
 <pre><code>.github/workflows/deploy.yml</code></pre>
 <ul>
-  <li>Definido para rodar em push na branch <code>main</code>.</li>
+  <li>Definido para rodar em push na branch então ao fazer git push ativara a pipeline dentro da branch</li>
 </ul>
 
 <h3>2. Jobs do Workflow CICD</h3>
@@ -72,3 +88,5 @@ Deixei o **Terraform install ZIP** caso ainda não tenha instalado. Descompacte 
 <ul>
   <li>Build e push de 10 imagens pra EC2</li>
 </ul>
+
+3. Caso quiser destruir tudo da AWS, vai na pipeline, comene o stage de apply e descomente o de destroy e rode o commit assim ele fara a função de destruir todo o ambiente na aws
