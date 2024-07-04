@@ -12,6 +12,7 @@
   <li>Define o provedor AWS com variáveis de acesso.</li>
 </ul>
 
+
 <h3>2. Definição dos Recursos</h3>
 <pre><code>main.tf</code></pre>
 <ul>
