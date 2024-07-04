@@ -1,4 +1,4 @@
-# Manual de Uso: Instalação do Docker usando Ansible
+# Manual de Uso: AMBIÊNTE LOCAL ANSIBLE LOCALHOST
 
 ## Visão Geral
 
@@ -28,7 +28,7 @@ docker-compose up -d
 
 ## 3. Acessar a Máquina Virtual
 
-Use o seguinte comando para acessar a máquina virtual:
+Depois do ambiênte já estar rodando no seu ambiente local dentro do docker, usar o seguinte comando para acessar a máquina virtual:
 
 ```sh
 docker exec -it ansible-ansible_host_1-1 bash

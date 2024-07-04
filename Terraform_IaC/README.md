@@ -1,12 +1,17 @@
-<h1>Automação com terraform + AWS e Pipeline CI/CD github Actions</h1>
+# Automação com terraform + AWS e Pipeline CI/CD github Actions
 
-<h2>Passos do Terraform</h2>
+## CONFIG TERRAFORM
 
-<h2>Obs.: não esquecer de configurar o secrets aqui no github das credenciais por conta da pipeline</h2>
+### Instalação do Terraform
+Deixei o **Terraform install ZIP** caso ainda não tenha instalado. Descompacte no disco C (você pode renomear a pasta se quiser).
 
-<h2>Obs.: não esquecer de configurar o secrets aqui no github das credenciais por conta da pipeline</h2>
-
-<h2>Obs.: não esquecer de configurar usuario la no IAM dentro da AWS e aproveitar e pegar a AMI la na AWS de qual imagem ec2 voce irá utilizar (exemplo: se é a Ubuntu, Windows, Linux etc...)</h2>
+1. Abra as variáveis de ambiente no Windows (no menu iniciar, digite `variáveis de ambiente`).
+2. Ao abrir, clique novamente em variáveis de ambiente.
+3. Clique em `Path` e no botão `Novo`.
+4. Clique em `Procurar` e selecione sua pasta Terraform que está no disco C.
+5. Clique em `OK` e pronto para abrir o seu VSCode.
+6. *Obs.:* Não esquecer de configurar o usuário no IAM dentro da AWS e pegar a AMI na AWS da imagem EC2 que você irá utilizar (exemplo: Ubuntu, Windows, Linux, etc.).
+7. Obs.: não esquecer de configurar o secrets aqui no github das credenciais criados na AWS por conta da pipeline
 
 <h3>1. Configuração do Provedor AWS</h3>
 <pre><code>providers.tf</code></pre>

@@ -37,6 +37,6 @@ O comando abaixo é para derrubar o contâiner
 docker-compose down
 ```
 
-## 5. Porque o script dentro da pasta do Rundeck?
+## 5. Porque tem a pasta de script dentro da pasta do Rundeck?
 
-Esse script ao iniciar o ambiente do Rundeck ele vai importar o arquivo job.yaml do Rundeck para dentro do ambiÊnte e o nodes.xml
+Esse script caso desejar, quando iniciar o ambiente do Rundeck esse script ele vai importar o arquivo job.yaml do Rundeck para dentro do ambiênte e o nodes.xml para uso dentro da plataforma do Rundeck importando o job
