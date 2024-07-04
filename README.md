@@ -20,5 +20,6 @@ desafio-infra-automation-davi/
 ├── .env
 ├── scripts/
 │   ├── setup_rundeck.sh     # Script para configurar o Rundeck
-│   └── start_environment.sh # Script para iniciar o ambiente (Docker, Vagrant, etc.)
+│   ├── start_environment.sh # Script para iniciar o ambiente (Docker, Vagrant, etc.)
+│   └── run_playbook.sh      # Script para executar o playbook Ansible
 └── README.md                # Documentação do projeto
