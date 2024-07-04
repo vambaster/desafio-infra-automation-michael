@@ -4,6 +4,6 @@ output "instance_ids" {
 }
 
 output "instance_public_ips" {
-  description = "IPs públicos das instâncias criadas"
+  description = "Endereços IP públicos das instâncias"
   value       = aws_instance.web[*].public_ip
 }

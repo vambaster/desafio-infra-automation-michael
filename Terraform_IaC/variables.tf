@@ -25,3 +25,14 @@ variable "instance_type" {
   type        = string
   default     = "t2.micro"
 }
+
+variable "private_key_path" {
+  description = "Caminho para a chave privada"
+  type        = string
+}
+
+variable "public_key_path" {
+  description = "Caminho para a chave pública"
+  type        = string
+  default     = "ssh_keys/deployer-key.pub"
+}
