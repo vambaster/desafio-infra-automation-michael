@@ -34,9 +34,12 @@ jobs:
 
       - name: Terraform Init
         run: terraform init
+        working-directory: .
 
       - name: Terraform Apply
         run: terraform apply -auto-approve
+        working-directory: .
 
       - name: Clean up
         run: rm terraform.tfvars
+        working-directory: .
