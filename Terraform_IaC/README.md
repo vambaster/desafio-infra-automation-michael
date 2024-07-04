@@ -1,10 +1,12 @@
-<h1>Projeto Automatizado Completo - Etapa 3 CICD Deploy Aplicação</h1>
+<h1>Automação com terraform + AWS e Pipeline CI/CD github Actions</h1>
 
 <h2>Passos do Terraform</h2>
 
 <h2>Obs.: não esquecer de configurar o secrets aqui no github das credenciais por conta da pipeline</h2>
 
-<h2>Obs.: não esquecer de pegar a AMI la na AWS de qual iamgem ec2 voce irá utilizar</h2>
+<h2>Obs.: não esquecer de configurar o secrets aqui no github das credenciais por conta da pipeline</h2>
+
+<h2>Obs.: não esquecer de configurar usuario la no IAM dentro da AWS e aproveitar e pegar a AMI la na AWS de qual imagem ec2 voce irá utilizar (exemplo: se é a Ubuntu, Windows, Linux etc...)</h2>
 
 <h3>1. Configuração do Provedor AWS</h3>
 <pre><code>providers.tf</code></pre>
