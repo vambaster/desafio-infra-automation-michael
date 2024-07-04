@@ -1,5 +1,6 @@
-aws_access_key = "your-access-key"
-aws_secret_key = "your-secret-key"
-aws_region     = "us-west-2"
-ami_id         = "ami-0c55b159cbfafe1f0"
-instance_type  = "t2.micro"
+# Aqui caso for rodar o terraform sem CI/CD
+
+# Caso for rodar com CI/CD precisa entrar no github e configurar as Secrets
+
+aws_access_key = "PEGAR INFO DA AWS / CONFIGURAR NO IAM"
+aws_secret_key = "PEGAR INFO DA AWS / CONFIGURAR NO IAM"

@@ -4,6 +4,6 @@ resource "aws_instance" "web" {
   instance_type = var.instance_type
 
   tags = {
-    Name = "ExampleInstance${count.index}"
+    Name = "Minsait${count.index}"
   }
 }

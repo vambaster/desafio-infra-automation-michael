@@ -2,6 +2,10 @@
 
 ## Visão Geral
 
+Objetivo deste Ansible é rodar as mesmas funcionalidades do job do Rundeck
+
+Este Playbook é um criação baseada no mesmo (Rundeck_job)
+
 Este guia fornece instruções para iniciar um ambiente Ansible completo usando Docker Compose, acessar a máquina virtual, executar um playbook Ansible para instalar o Docker e verificar a instalação.
 
 ## Passos

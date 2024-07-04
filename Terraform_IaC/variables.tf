@@ -9,18 +9,19 @@ variable "aws_secret_key" {
 }
 
 variable "aws_region" {
-  description = "AWS region"
+  description = "Região da AWS"
   type        = string
-  default     = "us-west-2"
+  default     = "us-east-1"
 }
 
 variable "ami_id" {
-  description = "AMI ID for the instance"
+  description = "ID da AMI para a instância"
   type        = string
+  default     = "ami-04a81a99f5ec58529"
 }
 
 variable "instance_type" {
-  description = "Instance type"
+  description = "Tipo da instância"
   type        = string
   default     = "t2.micro"
 }

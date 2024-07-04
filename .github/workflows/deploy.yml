@@ -24,8 +24,19 @@ jobs:
         with:
           terraform_version: 1.0.0
 
+      - name: Create terraform.tfvars
+        run: |
+          echo 'aws_access_key = "${{ secrets.AWS_ACCESS_KEY_ID }}"' > terraform.tfvars
+          echo 'aws_secret_key = "${{ secrets.AWS_SECRET_ACCESS_KEY }}"' >> terraform.tfvars
+          echo 'aws_region     = "us-east-1"' >> terraform.tfvars
+          echo 'ami_id         = "ami-04a81a99f5ec58529"' >> terraform.tfvars
+          echo 'instance_type  = "t2.micro"' >> terraform.tfvars
+
       - name: Terraform Init
         run: terraform init
 
       - name: Terraform Apply
         run: terraform apply -auto-approve
+
+      - name: Clean up
+        run: rm terraform.tfvars
