@@ -26,20 +26,20 @@ jobs:
 
       - name: Create terraform.tfvars
         run: |
-          echo 'aws_access_key = "${{ secrets.AWS_ACCESS_KEY_ID }}"' > terraform.tfvars
-          echo 'aws_secret_key = "${{ secrets.AWS_SECRET_ACCESS_KEY }}"' >> terraform.tfvars
-          echo 'aws_region     = "us-east-1"' >> terraform.tfvars
-          echo 'ami_id         = "ami-04a81a99f5ec58529"' >> terraform.tfvars
-          echo 'instance_type  = "t2.micro"' >> terraform.tfvars
+          echo 'aws_access_key = "${{ secrets.AWS_ACCESS_KEY_ID }}"' > Terraform_IaC/terraform.tfvars
+          echo 'aws_secret_key = "${{ secrets.AWS_SECRET_ACCESS_KEY }}"' >> Terraform_IaC/terraform.tfvars
+          echo 'aws_region     = "us-east-1"' >> Terraform_IaC/terraform.tfvars
+          echo 'ami_id         = "ami-04a81a99f5ec58529"' >> Terraform_IaC/terraform.tfvars
+          echo 'instance_type  = "t2.micro"' >> Terraform_IaC/terraform.tfvars
+        working-directory: Terraform_IaC
 
       - name: Terraform Init
         run: terraform init
-        working-directory: .
+        working-directory: Terraform_IaC
 
       - name: Terraform Apply
         run: terraform apply -auto-approve
-        working-directory: .
+        working-directory: Terraform_IaC
 
       - name: Clean up
-        run: rm terraform.tfvars
-        working-directory: .
+        run: rm Terraform_IaC/terraform.tfvars
