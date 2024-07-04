@@ -1,0 +1,56 @@
+# Manual de Uso: Subir com Docker o ambiente do Rundeck
+
+## Visão Geral
+
+vai abrir no navegador e você poderá utilizar o ambiente do Rundeck normalmente virtualizado pelo Docker
+
+## Passos
+
+### 1. Acessar a Pasta
+
+Acesse a pasta do projeto pelo terminal do VSCode ou qualquer outro terminal de sua preferência:
+
+```sh
+cd Rundeck_Job
+```
+
+## 2. Iniciar o Ambiente Ansible
+
+Rode o comando abaixo para iniciar o ambiente completo do Ansible usando Docker Compose:
+
+```sh
+docker-compose up -d
+```
+
+## 3. Acessar a Máquina Virtual
+
+Use o seguinte comando para acessar a máquina virtual:
+
+```sh
+docker exec -it ansible-ansible_host_1-1 bash
+```
+
+## 4. Executar o Playbook Ansible
+
+Dentro da máquina virtual, rode o playbook Ansible para fazer toda a operação que o job do Rundeck faz:
+
+```sh
+ansible-playbook -i inventory.ini playbook.yaml
+```
+
+## 5. Verificar a Instalação do Docker
+
+Para finalizar e confirmar que o Docker foi instalado, execute o comando:
+
+
+```sh
+sudo docker -v
+```
+
+## 6. Instalar Outros Pacotes ou Programas
+
+Para instalar outros pacotes ou programas em todas as máquinas, adapte o comando abaixo:
+
+```sh
+ansible all -i inventory.ini -m apt -a "update_cache=yes" --become
+```

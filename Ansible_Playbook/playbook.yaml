@@ -2,6 +2,8 @@
 - name: Install and configure Docker
   hosts: all
   become: yes
+  vars:
+    user_to_add: "root"  # Substitua por outro usuário, se necessário
   tasks:
     - name: Wait for a random time to avoid apt lock
       wait_for:
@@ -31,12 +33,6 @@
         rm -rf /var/lib/apt/lists/lock
       ignore_errors: true
 
-    - name: Debug apt sources list
-      shell: cat /etc/apt/sources.list
-      register: sources_list
-    - debug:
-        var: sources_list.stdout_lines
-
     - name: Update apt cache using shell
       shell: apt-get update
       register: update_result
@@ -46,54 +42,64 @@
       ignore_errors: true
 
     - name: Ensure required packages are installed
-      shell: |
-        apt-get install -y apt-transport-https ca-certificates curl software-properties-common
-      register: install_result
-      retries: 5
-      delay: 15
-      until: install_result.rc == 0
-      ignore_errors: true
+      apt:
+        name:
+          - apt-transport-https
+          - ca-certificates
+          - curl
+          - software-properties-common
+        state: present
 
     - name: Add Docker GPG key
-      shell: |
-        curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
-      register: gpg_result
-      retries: 5
-      delay: 15
-      until: gpg_result.rc == 0
-      ignore_errors: true
+      apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
 
     - name: Add Docker repository
-      shell: |
-        add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
-      register: repo_result
-      retries: 5
-      delay: 15
-      until: repo_result.rc == 0
-      ignore_errors: true
+      apt_repository:
+        repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable
+        state: present
 
     - name: Update apt cache after adding Docker repo
-      shell: apt-get update
-      register: update_docker_repo_result
-      retries: 5
-      delay: 15
-      until: update_docker_repo_result.rc == 0
-      ignore_errors: true
+      apt:
+        update_cache: yes
 
     - name: Install Docker
-      shell: |
-        apt-get install -y docker-ce
-      register: docker_install_result
-      retries: 5
-      delay: 15
-      until: docker_install_result.rc == 0
-      ignore_errors: true
+      apt:
+        name: docker-ce
+        state: present
 
-    - name: Ensure Docker service is started
+    - name: Add user to docker group
+      user:
+        name: "{{ user_to_add }}"
+        groups: docker
+        append: yes
+
+    - name: Set iptables to legacy
+      shell: |
+        update-alternatives --set iptables /usr/sbin/iptables-legacy
+        update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
+
+    - name: Fix ulimit in Docker init script
+      lineinfile:
+        path: /etc/init.d/docker
+        regexp: 'ulimit -Hn'
+        line: 'ulimit -n 524288'
+
+    - name: Enable and start Docker service using service command
       shell: |
         service docker start
       register: docker_service_result
       retries: 5
       delay: 15
       until: docker_service_result.rc == 0
+      ignore_errors: true
+
+    - name: Ensure Docker service is running
+      shell: |
+        service docker status
+      register: docker_status_result
+      retries: 5
+      delay: 15
+      until: docker_status_result.rc == 0
       ignore_errors: true

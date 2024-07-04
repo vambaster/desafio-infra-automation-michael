@@ -1,0 +1,81 @@
+version: '3.9'
+services:
+  ansible_host_1:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/ansible
+    command: sleep infinity
+
+  # ansible_host_2:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   volumes:
+  #     - .:/ansible
+  #   command: sleep infinity
+
+  # ansible_host_3:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   volumes:
+  #     - .:/ansible
+  #   command: sleep infinity
+
+  # ansible_host_4:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   volumes:
+  #     - .:/ansible
+  #   command: sleep infinity
+
+  # ansible_host_5:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   volumes:
+  #     - .:/ansible
+  #   command: sleep infinity
+
+  # ansible_host_6:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   volumes:
+  #     - .:/ansible
+  #   command: sleep infinity
+
+  # ansible_host_7:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   volumes:
+  #     - .:/ansible
+  #   command: sleep infinity
+
+  # ansible_host_8:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   volumes:
+  #     - .:/ansible
+  #   command: sleep infinity
+
+  # ansible_host_9:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   volumes:
+  #     - .:/ansible
+  #   command: sleep infinity
+
+  # ansible_host_10:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   volumes:
+  #     - .:/ansible
+  #   command: sleep infinity
