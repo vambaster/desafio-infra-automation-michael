@@ -28,6 +28,10 @@ jobs:
         run: terraform init
         working-directory: Terraform_IaC
 
-      - name: Aplicar Terraform
-        run: terraform apply -auto-approve
+      # - name: Aplicar Terraform
+      #   run: terraform apply -auto-approve
+      #   working-directory: Terraform_IaC
+
+      - name: Destruir Terraform
+        run: terraform destroy -auto-approve
         working-directory: Terraform_IaC
