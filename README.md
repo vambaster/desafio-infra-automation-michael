@@ -8,7 +8,7 @@ O objetivo deste desafio é avaliar suas habilidades em Rundeck e Ansible. Você
    - Conecta-se a várias máquinas Linux.
    - Instala o Docker.
    - Configura o Docker conforme necessário.
-   
+
 2. Sua tarefa é converter este job Rundeck em um playbook Ansible que realiza as mesmas ações. O playbook deve estar localizado no diretório `Ansible_Playbook/` com o nome `playbook.yaml`.
    
 * Certifique-se de que as máquinas provisionadas estejam acessíveis para o Ansible executar o playbook.
