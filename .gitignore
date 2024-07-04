@@ -1,4 +1,3 @@
-# Ignorar arquivos e diretórios do Terraform
 *.tfstate
 *.tfstate.*
 *.tfvars
