@@ -50,7 +50,7 @@
   <li>Definido para rodar em push na branch <code>main</code>.</li>
 </ul>
 
-<h3>2. Jobs do Workflow</h3>
+<h3>2. Jobs do Workflow CICD</h3>
 
 <h4>Deploy</h4>
 <ul>
@@ -63,5 +63,4 @@
 <h4>Provisionamento terraform e AWS EC2</h4>
 <ul>
   <li>Build e push de 10 imagens pra EC2</li>
-  <li>Limpeza de imagens antigas no ECR</li>
 </ul>
