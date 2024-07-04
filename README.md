@@ -2,7 +2,7 @@
 O objetivo deste desafio é avaliar suas habilidades em Rundeck e Ansible. Você precisará converter um job complexo do Rundeck, que interage com diversas máquinas Linux para instalar e configurar Docker, em um playbook Ansible. 
 
 ## Instruções
-
+ 
 ### Parte 1: Rundeck para Ansible
 1. Dentro do diretório `Rundeck_Job/` você encontrará um arquivo `job.yaml` que descreve um job Rundeck. Este job realiza as seguintes tarefas:
    - Conecta-se a várias máquinas Linux.
