@@ -1,0 +1,33 @@
+- name: Instalar e Configurar Docker
+  hosts: hosts
+  become: yes
+  tasks:
+    - name: Atualizar pacotes e instalar dependências
+      yum:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - yum-utils
+
+    - name: Adicionar repositório Docker
+      command: sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+
+    - name: Instalar Docker
+      yum:
+        name:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+        state: present
+
+    - name: Adicionar usuário ao grupo Docker
+      user:
+        name: "{{ ansible_user_id }}"
+        groups: docker
+        append: yes
+
+    - name: Habilitar e iniciar o serviço Docker
+      systemd:
+        name: docker
+        enabled: yes
+        state: started
