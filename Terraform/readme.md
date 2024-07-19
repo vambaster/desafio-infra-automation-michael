@@ -17,8 +17,11 @@ Este código Terraform foi criado para provisionar 10 máquinas na AWS que serã
      ```
    - Aplique a configuração:
      ```bash
-     terraform apply
+     terraform plan -var="access_key=YOUR_ACCESS_KEY" -var="secret_key=YOUR_SECRET_KEY"
      ```
+   - Execute terraform apply :
+     ```bash
+     terraform apply -var="access_key=YOUR_ACCESS_KEY" -var="secret_key=YOUR_SECRET_KEY"
 
 ## Estrutura do Projeto
 
