@@ -1,6 +1,6 @@
 - name: Instalar e Configurar Docker
   hosts: hosts
-  become: yes
+  become: true
   tasks:
     - name: Atualizar pacotes e instalar dependências
       yum:
